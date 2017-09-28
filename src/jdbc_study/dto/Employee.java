@@ -59,8 +59,12 @@ public class Employee {
 	}
 	@Override
 	public String toString() {
-		return String.format("Employee [empno=%s, empname=%s, title=%s, manager=%s, salary=%s, dno=%s]", empno, empname,
+		return String.format(" %s, %s, %s, %s, %s, %s", empno, empname,
 				title, manager, salary, dno);
+	}
+	
+	public Object[] toArray(){
+		return new Object[]{empno,empname,title,manager,salary,dno};
 	}
 	
 	

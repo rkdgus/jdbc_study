@@ -22,9 +22,9 @@ public class TestMain {
 		
 		dbcon.connClose();*/
 		
-//		department();
+		department();
 		
-		employee();
+//		employee();
 		
 		
 		
