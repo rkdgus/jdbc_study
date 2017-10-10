@@ -19,9 +19,7 @@ public class EmployeeDao {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	private Connection con;
-	private int tempInt = 0;
-	private String tempStr ="";
-	
+
 	public static EmployeeDao getInstance() {
 		return instance;
 	}
@@ -56,19 +54,16 @@ public class EmployeeDao {
 
 	public List<Integer> selectManager() {
 		List<Integer> list = new ArrayList<>();
-		sql = "select manager from employee";
+		sql = "select empno from employee";
 		con = DBCon.getInstance().getConn();
 		try {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 
-				int manager = rs.getInt("manager");
+				int manager = rs.getInt("empno");
+				list.add(manager);
 
-				if (tempInt != manager) {
-					tempInt = manager;
-					list.add(tempInt);
-				}
 			}
 		} catch (SQLException e) {
 
@@ -80,22 +75,18 @@ public class EmployeeDao {
 
 		return list;
 	}
-	
-	
+
 	public List<String> selectTitle() {
 		List<String> list = new ArrayList<>();
-		sql = "select title from employee";
+		sql = "select distinct title from employee";
 		con = DBCon.getInstance().getConn();
 		try {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				String title = rs.getString("title");
-				
-				if (!list.equals(title)) {
-					tempStr = title;
-					list.add(title);
-				}
+				list.add(title);
+
 			}
 		} catch (SQLException e) {
 
@@ -154,7 +145,7 @@ public class EmployeeDao {
 				return;
 			}
 			JOptionPane.showMessageDialog(null, emp1 + "추가하였습니다.");
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -176,7 +167,7 @@ public class EmployeeDao {
 				return;
 			}
 			JOptionPane.showMessageDialog(null, emp2 + "삭제하였습니다.");
-		
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -199,7 +190,7 @@ public class EmployeeDao {
 				return;
 			}
 			JOptionPane.showMessageDialog(null, emp3 + "수정하였습니다.");
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

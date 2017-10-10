@@ -138,6 +138,8 @@ public class DepartmentDao {
 			JOptionPane.showMessageDialog(null, dept + "삭제하였습니다.");
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} catch (NumberFormatException n) {
+			n.printStackTrace();
 		} finally {
 			JdbcUtil.close(pstmt);
 		}

@@ -32,7 +32,7 @@ public class DepartmentUI extends JFrame implements ActionListener {
 	private int floor;
 	private Department dept;
 	private DepartmentDao dao = DepartmentDao.getInstance();
-	private DeptPanel dp;
+	private DeptPanel1 dp;
 	
 
 	public JTextField getTfDeptNo() {

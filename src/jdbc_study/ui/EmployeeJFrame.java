@@ -19,8 +19,8 @@ public class EmployeeJFrame extends JFrame implements ActionListener {
 	private JMenuItem mnChange;
 	private JMenuItem mnInsert;
 	private DepartmentUI deptUI;
-	private DeptPanel dp;
-	private EmpPanel ep;
+	private DeptPanel1 dp;
+	private EmpPanel1 ep;
 	private boolean empSelect;
 	private EmployeeUI empUI;
 
@@ -57,12 +57,12 @@ public class EmployeeJFrame extends JFrame implements ActionListener {
 		mn.add(mnSerach);
 
 		if (selectED == false) {
-			dp = new DeptPanel();
+			dp = new DeptPanel1();
 			dp.setBorder(new EmptyBorder(10, 10, 10, 10));
 			setContentPane(dp);
 			empSelect = false;
 		} else {
-			ep = new EmpPanel();
+			ep = new EmpPanel1();
 			ep.setBorder(new EmptyBorder(10, 10, 10, 10));
 			setContentPane(ep);
 			empSelect = true;
